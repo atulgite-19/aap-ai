@@ -5,10 +5,10 @@
   vars:
     nginx_package: nginx
   tasks:
-    - name: Ensure EPEL repository is enabled (required for nginx on RHEL)
-      yum:
-        name: epel-release
-        state: present
+    # - name: Ensure EPEL repository is enabled (required for nginx on RHEL)
+    #   yum:
+    #     name: epel-release
+    #     state: present
 
     - name: Install NGINX
       yum:
