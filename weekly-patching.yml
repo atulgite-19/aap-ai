@@ -1,0 +1,33 @@
+---
+- name: prod-rhel-weekly-patch
+  description: Weekly patching job for RHEL servers in production
+  job_type: run
+  inventory: Prod_RHEL_Group
+  project: RHEL-Maintenance-Git
+  playbook: patch_linux.yml
+  credentials:
+    - prod-ssh-key
+    - vault-password
+  execution_environment: rhel-ee:latest
+  job_tags: patch,reboot
+  skip_tags: none
+  become_enabled: true
+  verbosity: 2
+  limit: ''
+  extra_vars:
+    email_report: ops@example.com
+  survey_enabled: true
+  ask_variables_on_launch: false
+  ask_limit_on_launch: false
+  ask_tags_on_launch: false
+  ask_skip_tags_on_launch: false
+  ask_inventory_on_launch: false
+  ask_credential_on_launch: false
+  ask_execution_environment_on_launch: false
+  ask_job_type_on_launch: false
+  ask_verbosity_on_launch: false
+  ask_become_on_launch: false
+  ask_labels_on_launch: false
+  ask_forks_on_launch: false
+  ask_diff_mode_on_launch: false
+  ask_scm_branch_on_launch: false
